@@ -179,6 +179,8 @@ class Reloader(object):
 
             else:
                 self.worker.join()
+                self.logger.info('Server with PID0 %s exited with code %d.' %
+                                 (self.worker.pid, self.worker.exitcode))
                 self.logger.info('Server with PID %s exited with code %d.' %
                                  (self.worker.pid, self.worker.exitcode))
         self.logger.info('Before')
