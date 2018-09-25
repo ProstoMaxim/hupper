@@ -181,9 +181,10 @@ class Reloader(object):
                 self.worker.join()
                 self.logger.info('Server with PID %s exited with code %d.' %
                                  (self.worker.pid, self.worker.exitcode))
-
+        self.logger.info('Before')
         self.monitor.clear_changes()
 
+        self.logger.info('Restart %s', self.worker.terminated)
         force_restart = self.worker.terminated
         self.worker = None
         return force_restart
